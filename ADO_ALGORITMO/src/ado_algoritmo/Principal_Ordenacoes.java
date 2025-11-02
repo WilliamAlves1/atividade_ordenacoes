@@ -15,10 +15,10 @@ public class Principal_Ordenacoes {
 
         do {
             String menuPrincipal = """
-                                   Escolha o método desejado:
-                                   1 - Método de Ordenação Bolha
-                                   2 - Método de Ordenação Seleção
-                                   3 - Método de Ordenação Inserção
+                                   Escolha o mÃ©todo desejado:
+                                   1 - MÃ©todo de OrdenaÃ§Ã£o Bolha
+                                   2 - MÃ©todo de OrdenaÃ§Ã£o SeleÃ§Ã£o
+                                   3 - MÃ©todo de OrdenaÃ§Ã£o InserÃ§Ã£o
                                    4 - Sair do Programa
                                    """;
 
@@ -26,7 +26,7 @@ public class Principal_Ordenacoes {
             int escolha = Integer.parseInt(inputEscolha);
 
             if (escolha == 4) {
-                JOptionPane.showMessageDialog(null, "Esperamos poder revê-lo logo!",
+                JOptionPane.showMessageDialog(null, "Esperamos poder revÃª-lo logo!",
                         "Saindo", JOptionPane.INFORMATION_MESSAGE);
                 System.exit(0);
             }
@@ -34,7 +34,7 @@ public class Principal_Ordenacoes {
             String menuVolume = """
                                 Escolha o volume de dados desejado:
                                 1 - Pequeno
-                                2 - Médio
+                                2 - MÃ©dio
                                 3 - Grande
                                 """;
 
@@ -43,32 +43,26 @@ public class Principal_Ordenacoes {
 
             vet = comandos_gerais.gerarei.gerador(vet, vol);
 
-            JOptionPane.showMessageDialog(null, "O vetor desordenado será exibido no console.",
+            JOptionPane.showMessageDialog(null, "O vetor desordenado serÃ¡ exibido a seguir.",
                     "Vetor Original", JOptionPane.INFORMATION_MESSAGE);
 
             exibicao.Exibicao.exibir(vet);
 
-            long inicio = System.currentTimeMillis();
 
             escolherordena.ordenarei(vet, escolha);
 
-            long fim = System.currentTimeMillis();
-
-            long tempo = fim - inicio;
-            JOptionPane.showMessageDialog(null, "Tempo de execução: " + tempo + " ms",
-                    "Resultado", JOptionPane.INFORMATION_MESSAGE);
 
             String menuContinuar = """
                                    Deseja continuar?
                                    1 - Sim
-                                   2 - Não""";
+                                   2 - NÃ£o""";
 
             String inputJ = JOptionPane.showInputDialog(menuContinuar);
             j = Integer.parseInt(inputJ);
 
         } while (j == 1);
 
-        JOptionPane.showMessageDialog(null, "Esperamos poder revê-lo logo!",
+        JOptionPane.showMessageDialog(null, "Esperamos poder revÃª-lo logo!",
                 "Saindo", JOptionPane.INFORMATION_MESSAGE);
 
     }

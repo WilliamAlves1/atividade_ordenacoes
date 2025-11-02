@@ -1,39 +1,62 @@
 package comandos_gerais;
 
 import javax.swing.JOptionPane;
+import ordenacoes.ordenabolha;
+import ordenacoes.ordenainsercao;
+import ordenacoes.ordenaselecao;
 
 public class escolherordena {
     public static int ordenarei(int vet[], int opc){
+        if (vet == null) {
+            return 0;
+        }
+
         int trocas = 0;
         int passadas= 0;
         int compara = 0;
         String estab = "";
-
         String metodoNome = "";
+
+        long tempoDeExecucao = 0;
 
         switch (opc) {
             case 1:
-                metodoNome = "MÈtodo Bolha:";
-                estab = "Est·vel";
-                int[] resultadobolha = ordenacoes.ordenabolha.bolha(vet);
+                metodoNome = "M√©todo Bolha:";
+                estab = "Est√°vel";
+
+                long inicioBolha = System.currentTimeMillis();
+                int[] resultadobolha = ordenabolha.bolha(vet);
+                long fimBolha = System.currentTimeMillis();
+                tempoDeExecucao = fimBolha - inicioBolha;
+
                 trocas = resultadobolha[0];
                 passadas = resultadobolha[1];
                 compara = resultadobolha[2];
                 break;
 
             case 2:
-                metodoNome = "MÈtodo de SeleÁ„o:";
-                estab = "Inst·vel";
-                int[] resultadoselecao = ordenacoes.ordenaselecao.selecao(vet);
+                metodoNome = "M√©todo de Sele√ß√£o:";
+                estab = "Inst√°vel";
+
+                long inicioSelecao = System.currentTimeMillis();
+                int[] resultadoselecao = ordenaselecao.selecao(vet);
+                long fimSelecao = System.currentTimeMillis();
+                tempoDeExecucao = fimSelecao - inicioSelecao;
+
                 trocas = resultadoselecao[0];
                 passadas = resultadoselecao[1];
                 compara = resultadoselecao[2];
                 break;
 
             case 3:
-                metodoNome = "MÈtodo de InserÁ„o:";
-                estab = "Est·vel";
-                int[] resultadoinsercao = ordenacoes.ordenainsercao.insercao(vet);
+                metodoNome = "M√©todo de Inser√ß√£o:";
+                estab = "Est√°vel";
+
+                long inicioInsercao = System.currentTimeMillis();
+                int[] resultadoinsercao = ordenainsercao.insercao(vet);
+                long fimInsercao = System.currentTimeMillis();
+                tempoDeExecucao = fimInsercao - inicioInsercao;
+
                 trocas = resultadoinsercao[0];
                 passadas = resultadoinsercao[1];
                 compara = resultadoinsercao[2];
@@ -44,12 +67,12 @@ public class escolherordena {
         mensagemResultado += metodoNome + "\n";
         mensagemResultado += "Estabilidade: " + estab + "\n";
         mensagemResultado += "Passadas: " + passadas + "\n";
-        mensagemResultado += "Trocas: " + trocas + "\n";
-        mensagemResultado += "ComparaÁıes: " + compara + "\n\n";
-        mensagemResultado += "O vetor ordenado ser· exibido no console.";
+        mensagemResultado += "Trocas (Movimenta√ß√µes): " + trocas + "\n";
+        mensagemResultado += "Compara√ß√µes: " + compara + "\n\n";
+        mensagemResultado += "Tempo de execu√ß√£o: " + tempoDeExecucao + " ms";
 
         JOptionPane.showMessageDialog(null, mensagemResultado,
-                "Resultado da OrdenaÁ„o", JOptionPane.INFORMATION_MESSAGE);
+                "Resultado da Ordena√ß√£o", JOptionPane.INFORMATION_MESSAGE);
 
         exibicao.Exibicao.exibir(vet);
         return trocas;
