@@ -11,7 +11,7 @@ public class Principal_Ordenacoes {
 
         int j = 1;
         Random gerador = new Random();
-        int vet[] = null;
+        int[] vet = null;
 
         do {
             String menuPrincipal = """
@@ -66,5 +66,4 @@ public class Principal_Ordenacoes {
                 "Saindo", JOptionPane.INFORMATION_MESSAGE);
 
     }
-
 }
